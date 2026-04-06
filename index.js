@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const { Groq } = require('groq-sdk')
 
-app.use(express.static('public')) 
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Initialize Groq
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
