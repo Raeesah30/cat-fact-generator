@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const { Groq } = require('groq-sdk')
 
+app.use(express.static('public')) 
+
 // Initialize Groq
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
@@ -12,11 +14,12 @@ app.get('/cat-fact', async (req, res) => {
 const completion = await groq.chat.completions.create({
 messages: [{
 role: 'user',
-content: 'Tell about an short cat fact. No need for a long essay maximum 1 sentence and make it interesting'
+content: 'Tell about an short cat fact. No need for a long essay maximum 1 sentence and make it interesting and it shiuld be a new unique fact each time.'
 }],
-model: 'llama-3.3-70b-versatile'
+model: 'llama-3.3-70b-versatile',
+temperature: 1.2
 })
-// Display fact 
+
 const catFact = completion.choices[0].message.content
 res.json({fact : catFact})
 })

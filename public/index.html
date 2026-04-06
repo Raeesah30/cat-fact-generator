@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PurrFacts – Cat Fact Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TopNavBar - Centered Header -->
+  <nav class="main-navbar">
+    <div class="nav-container">
+      <div class="nav-brand-centered">
+        PurrFacts
+      </div>
+    </div>
+  </nav>
+
+  <!-- REMOVED: <div class="brand">PurrFacts</div> -->
+
+  <span class="tag">Daily Discovery</span>
+
+  <h1>Cat Fact <span>Generator</span></h1>
+  <p class="subtitle">Uncover the quiet mysteries and whimsical wonders of our feline companions, one curious fact at a time.</p>
+
+  <!-- Main Card -->
+  <div class="card">
+    <div class="cat-img-wrap">
+      <img id="cat-img" src="cat.jpeg" alt="Curious Cat" onerror="this.style.background='#d4f0a8';this.style.display='flex'"/>
+      <span class="paw-badge material-symbols-outlined" style="font-variation-settings:'FILL' 1;">pets</span>
+    </div>
+
+    <div class="fact-side">
+      <div class="fact-meta">
+        <span class="dot"></span>
+        <span id="fact-label">Feline Fact</span>
+      </div>
+      <blockquote id="fact">Click "Generate Fact" to discover something wonderful about cats.</blockquote>
+    </div>
+    <span class="paw-bg material-symbols-outlined">pets</span>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="actions">
+    <button class="btn btn-primary" id="generateBtn">
+      <span class="icon">refresh</span>
+      Generate Fact
+    </button>
+    <button class="btn btn-secondary" id="shareBtn">
+      <span class="icon">share</span>
+      Share Discovery
+    </button>
+  </div>
+
+  <div class="toast" id="toast">Copied to clipboard! 🐾</div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-copyright">
+        © 2024 PurrFacts - Cat Fact Generator. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

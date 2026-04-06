@@ -1,0 +1,458 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #376700;
+  --primary-light: #b3f27a;
+  --secondary-bg: #ffc69d;
+  --secondary-text: #703900;
+  --surface: #f7f6f3;
+  --surface-low: #f1f1ee;
+  --surface-high: #e3e3df;
+  --on-surface: #2e2f2d;
+  --muted: #5b5c5a;
+  --border: rgba(0, 0, 0, 0.08);
+  --shadow: rgba(55, 103, 0, 0.15);
+  --header-footer-bg: #e4e3d9;
+  --header-footer-text: #78716c;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background: var(--surface);
+  color: var(--on-surface);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  background-image: radial-gradient(ellipse 800px 600px at 110% 0%, rgba(179, 242, 122, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 700px 500px at -10% 100%, rgba(255, 198, 157, 0.18) 0%, transparent 70%);
+}
+
+/* NEW: Navbar Styles - Matching footer */
+.main-navbar {
+  width: 100%;
+  background: #e4e3d9;  /* Same as footer */
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: background-color 0.3s;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 2rem;  /* Same padding as footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-brand-centered {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #466f17;  /* Brand color stands out */
+  text-align: center;
+}
+
+/* Footer Styles */
+.main-footer {
+  width: 100%;
+  background: #e4e3d9;
+  margin-top: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-copyright {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 0.75rem;
+  color: #78716c;
+  letter-spacing: 0.01em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 0.75rem;
+  color: #78716c;
+  text-decoration: none;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #2e2f2d;
+  opacity: 1;
+}
+
+/* Tag - Slightly larger */
+.tag {
+  display: inline-block;
+  padding: 6px 18px;
+  background: var(--secondary-bg);
+  color: var(--secondary-text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-radius: 999px;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Headline - Larger and more prominent */
+h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--on-surface);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+h1 span {
+  color: var(--primary);
+}
+
+/* Subtitle - Larger text */
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--muted);
+  text-align: center;
+  max-width: 550px;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+/* Card - Larger and more spacious */
+.card {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 32px;
+  padding: 2.5rem;
+  box-shadow: 0 12px 48px var(--shadow);
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cat image - Larger */
+.cat-img-wrap {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--surface-high);
+  position: relative;
+}
+
+.cat-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.cat-img-wrap:hover img {
+  transform: scale(1.07);
+}
+
+.cat-img-wrap .paw-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+/* Fact side - More spacing */
+.fact-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fact-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.fact-meta .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+/* Fact text - Much larger and readable */
+blockquote {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--on-surface);
+  min-height: 100px;
+  transition: opacity 0.3s ease;
+}
+
+blockquote.loading {
+  opacity: 0.4;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Floating paw background */
+.card .paw-bg {
+  position: absolute;
+  bottom: 16px;
+  right: 24px;
+  font-size: 6rem;
+  color: var(--on-surface);
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Buttons - Larger and more clickable */
+.actions {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  border-radius: 999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.18s, box-shadow 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* Ripple effect */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn:active::after {
+  width: 300%;
+  height: 300%;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #376700 0%, #5fa800 60%, #b3f27a 100%);
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(55, 103, 0, 0.28);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(55, 103, 0, 0.35);
+}
+
+.btn-secondary {
+  background: var(--secondary-bg);
+  color: var(--secondary-text);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.96);
+}
+
+/* Disabled button style */
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+}
+
+.btn-secondary:disabled:hover {
+  transform: none;
+  filter: none;
+}
+
+.btn-secondary:disabled .icon {
+  transform: none;
+}
+
+.btn .icon {
+  font-family: 'Material Symbols Outlined';
+  font-size: 1.3rem;
+  font-style: normal;
+  transition: transform 0.3s;
+}
+
+.btn-primary:hover .icon {
+  transform: rotate(20deg);
+}
+
+/* Toast notification */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--on-surface);
+  color: var(--surface);
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 100;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive - Adjusted for better mobile experience */
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+  
+  .nav-container {
+    padding: 1.5rem 1.5rem;
+  }
+  
+  .nav-brand-centered {
+    font-size: 1.5rem;
+  }
+  
+  .footer-container {
+    padding: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-links {
+    gap: 1.5rem;
+  }
+  
+  .tag {
+    margin-top: 1.5rem;
+  }
+  
+  .card {
+    padding: 1.8rem;
+    gap: 1.5rem;
+  }
+  
+  .cat-img-wrap {
+    width: 140px;
+    height: 140px;
+  }
+  
+  blockquote {
+    font-size: 1.1rem;
+    min-height: 80px;
+  }
+  
+  .btn {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
+  
+  .actions {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 350px;
+  }
+
+  .cat-img-wrap {
+    width: 100%;
+    height: 200px;
+  }
+
+  .card .paw-bg {
+ visibility: hidden;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .actions {
+    width: 100%;
+  }
+}
